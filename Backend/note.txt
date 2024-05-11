@@ -1,0 +1,14 @@
+Architecture:
+  - trong modules có feature và shared
+  - feature module là các module có controller và có url cụ thể cho module đó để trực tiếp làm rest api, 
+    các module trong feature sẽ có thư mục controller, service, dto, strategy, ... riêng mà chỉ sử dụng ở module đó.
+  - common là các cái chung mà tất cả các module sẽ dùng, là các global, bao gồm decorators, reflector, guard, provider, ...
+  - trong config bao gồm các object sẽ được làm tùy chỉnh cho các module nền tảng (module bên thứ 3 cài vào, module dependency) 
+  - các module dependency sẽ là các module được khởi chạy đầu tiên nên tất cả phải viết hết vào trong AppModule,
+    và lấy các object config ở trong folder config
+  - shared module là các module không có controller (không có url), gần như sẽ chỉ có các provider và export ra cho controller 
+    của các feature module sử dụng
+  - trong database sẽ có factories, migrations và seeder
+  - trong model sẽ có entity và các enum, ...
+  - trong storage sẽ có app và log
+  - 
